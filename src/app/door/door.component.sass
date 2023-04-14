@@ -1,0 +1,54 @@
+.backDoor
+    background-color: rgb(27, 47, 51)
+    width:206px
+    height:306px
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: center
+    margin: 0 auto
+    border-radius: 10px
+
+.door
+    /* based on https://codepen.io/am_eu/pen/EgedaQ */
+    background-color: rgb(185, 109, 64)
+    position: absolute
+    top:0px
+    left:0px
+    width:200px
+    height:300px
+    border: solid 3px
+    border-radius: 10px
+
+    transform-origin: left
+    /*Speed of the Door animation*/
+    transition: all 0.5s ease-in-out
+
+
+.doorOpen
+    /* from https://codepen.io/am_eu/pen/EgedaQ */
+    /*prespectiv creates the door open effect*/
+    transform: perspective(1200px) translateZ(0px) translateX(0px) translateY(0px) rotateY(-105deg)
+
+.knob
+    background-color: black
+    position: relative
+    top:140px
+    left:150px
+    width:20px
+    height:20px
+    border-radius:10px
+
+.message
+    color: white
+
+
+.doorNumber
+    color: white
+    top:48px
+    left:100px
+    margin: auto
+    text-align: center
+    border-radius:10px
+    font-size: 5.5rem
+    font-family: 'Lora', serif
