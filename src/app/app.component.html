@@ -34,6 +34,13 @@
       </div>
     </ng-container>
   </div>
+  <div class="counter">
+    <div>Played: {{ played }} Won: {{ won }} Win %: {{ winRate }}</div>
+    <button mat-button (click)="reset()">Reset stats</button>
+  </div>
+  <div class="about">
+    <a href="https://en.wikipedia.org/wiki/Monty_Hall_problem">Read more about the Monty Hall Problem</a> and try out different strategies to see how your win % changes.
+  </div>
   <app-footer></app-footer>
 </div>
 <router-outlet></router-outlet>

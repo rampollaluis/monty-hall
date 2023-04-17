@@ -20,6 +20,9 @@ export class AppComponent {
   chosenDoor?: number;
   Step = Step;
   step: Step = Step.PICK;
+  played = 0;
+  won = 0;
+  winRate = 0
 
 
   ngOnInit() {
@@ -54,6 +57,10 @@ export class AppComponent {
       this.chooseFinalDoors();
     } else if (this.step === Step.CONFIRM_SWAP) {
       this.step = Step.END;
+
+      this.played++;
+      if (this.answer == this.chosenDoor!!) this.won++;
+      this.winRate = Math.floor((this.won / this.played) * 100);
     }
   }
 
@@ -86,10 +93,10 @@ export class AppComponent {
     if (this.chosenDoor!! == this.answer) return "Congratulations! You've won the prize!";
     else return "Sorry, but you didn't win this time. Better luck next time!";
   }
-}
 
-/*
-  TODO:
-  - play again
-  - win count
-*/
+  reset() {
+    this.played = 0;
+    this.won = 0;
+    this.winRate = 0;
+  }
+}
