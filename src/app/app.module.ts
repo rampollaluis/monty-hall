@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { DoorComponent } from './door/door.component';
 import {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DoorComponent
+    DoorComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

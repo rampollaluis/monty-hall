@@ -3,5 +3,5 @@
         <div class="knob"></div>
         <div class="doorNumber">{{doorNumber}}</div>
     </div>
-    <div class="message">{{message}}</div>
+    <div *ngIf="isOpen" class="message">{{getMessage()}}</div>
 </div>

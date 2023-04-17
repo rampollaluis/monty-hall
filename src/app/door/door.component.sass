@@ -1,5 +1,7 @@
+@import '../../styles'
+
 .backDoor
-    background-color: rgb(27, 47, 51)
+    background-color: $shadow-color
     width:206px
     height:306px
     position: relative
@@ -11,13 +13,13 @@
 
 .door
     /* based on https://codepen.io/am_eu/pen/EgedaQ */
-    background-color: rgb(185, 109, 64)
+    background-color: $door-color
     position: absolute
     top:0px
     left:0px
     width:200px
     height:300px
-    border: solid 3px
+    border: solid 3px $door-border-color
     border-radius: 10px
 
     transform-origin: left
@@ -31,7 +33,7 @@
     transform: perspective(1200px) translateZ(0px) translateX(0px) translateY(0px) rotateY(-105deg)
 
 .knob
-    background-color: black
+    background-color: $door-knob-color
     position: relative
     top:140px
     left:150px
@@ -40,11 +42,11 @@
     border-radius:10px
 
 .message
-    color: white
+    font-size: 3rem
 
 
 .doorNumber
-    color: white
+    color: $door-number-color
     top:48px
     left:100px
     margin: auto

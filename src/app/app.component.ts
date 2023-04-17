@@ -18,22 +18,24 @@ export class AppComponent {
   doors: Array<number> = [1, 2, 3];
   answer: number = 0;
   chosenDoor?: number;
-  Step = Step
+  Step = Step;
   step: Step = Step.PICK;
 
+
   ngOnInit() {
+    this.setupGame();
+  }
+
+  setupGame() {
+    this.doors = [1, 2, 3]
+    this.step = Step.PICK;
     this.answer = this.chooseDoor();
-    console.log(this.answer);
+    
   }
 
   chooseDoor(): number {
     const [min, max] = [1, 3];
     return Math.floor(Math.random() * ((max+1) - min) + min);
-  }
-
-  getDoorMessage(doorNumber: number): string {
-    if (doorNumber === this.answer) return "Yes";
-    return "Loser";
   }
 
   choseDoor(event: number) {
@@ -44,8 +46,6 @@ export class AppComponent {
       this.chosenDoor = event;
       this.step = Step.CONFIRM_SWAP;
     }
-    console.log(this.step);
-    
   }
 
   confirmPick() {
@@ -54,9 +54,7 @@ export class AppComponent {
       this.chooseFinalDoors();
     } else if (this.step === Step.CONFIRM_SWAP) {
       this.step = Step.END;
-      // win condition
     }
-    console.log(this.step.toString());
   }
 
   cancelPick() {
@@ -65,7 +63,6 @@ export class AppComponent {
     } else if (this.step === Step.CONFIRM_SWAP) {
       this.step = Step.SWAP;
     }
-    console.log(this.step);
   }
 
   chooseFinalDoors() {
@@ -73,10 +70,8 @@ export class AppComponent {
       const remainingDoors = this.doors.filter(door => door != this.answer);
       const randomRemaining = Math.floor(Math.random() * remainingDoors.length);
       this.doors = [this.answer, remainingDoors[randomRemaining]].sort();
-      console.log(this.doors);
     } else {
       this.doors = [this.answer, this.chosenDoor!!].sort();
-      console.log(this.doors);
     }
   }
 
@@ -86,19 +81,15 @@ export class AppComponent {
     }
     return false;
   }
-
+  
+  getFinalText(): string {
+    if (this.chosenDoor!! == this.answer) return "Congratulations! You've won the prize!";
+    else return "Sorry, but you didn't win this time. Better luck next time!";
+  }
 }
-
-
 
 /*
   TODO:
-  - win text
-  - organize css
-  - change yes/no options
-  - change swap text
-  - add beginner text
-  - center/enlarge text
   - play again
   - win count
 */
